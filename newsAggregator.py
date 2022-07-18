@@ -20,17 +20,6 @@ def getArticleLinks(html):
             URLs.append("https://portswigger.net" + link['href'])
         return URLs
 
-def getArticleDescriptions(html):
-    # Create Soup object and find descriptions of the articles.
-    
-    soupObj = bs4.BeautifulSoup(html.content, 'html.parser')
-    descriptions = []
-    
-    while True:
-        for link in soupObj.find_all('span', class_ = "main"):
-            descriptions.append(link.text)
-        return descriptions
-
 def sendEmail(password, email):
 
     contextDefault = ssl.create_default_context()
